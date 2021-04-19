@@ -26,13 +26,8 @@ In this repo I've collected some basic Plotly scripts, Dash dashboards, and othe
 * Install Anaconda
 * Create repo folder and initialize repo
 * Create necessary file structure
-- app.py
-- index.py
-- apps
-   |-- __init__.py
-   |-- app1.py
-   |-- app2.py
-   
+![File Structure](readme_images/file_structure.png)
+
 * Open Anaconda Prompt and navigate to repo folder
 * Create virtual environment
 * Activate virtual environment
@@ -42,7 +37,7 @@ In this repo I've collected some basic Plotly scripts, Dash dashboards, and othe
 $ git clone https://github.com/shanemmattner/Dash_Multipage.git
 $ conda create --name dash_multi
 $ conda activate dash_multi
-$ pip install dash pandas dash-bootstrap-components spyder
+$ conda install dash pandas dash-bootstrap-components spyder
 $ spyder
 ```
 

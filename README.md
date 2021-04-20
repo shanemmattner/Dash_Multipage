@@ -23,6 +23,7 @@ In this repo I've collected some basic Plotly scripts, Dash dashboards, and othe
 * Dash
 
 ## Project Setup
+* Install Hantek6022BE drivers (link below)
 * Install Anaconda
 * Create repo folder and initialize repo
 * Create necessary file structure
@@ -71,5 +72,12 @@ Project created by Shane Mattner
 * [Awesome Dash](https://github.com/ucg8j/awesome-dash)
 * [dash-recipes](https://github.com/plotly/dash-recipes)
 * [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/)
+##### Hankel
+* [OpenHantek6022](https://github.com/OpenHantek/OpenHantek6022)
+* [Hantek Downloads](http://www.hantek.com/products/detail/31)
+* [Hantek6022BE Driver](http://www.hantek.com/Product/Hantek6000/HT6022_Driver.zip)
+* [Hantek6022BE SDK](http://www.hantek.com/Product/Hantek6000/HT6022_SDK.zip)
+* [Hantek6022BE Manual](http://www.hantek.com/Product/Hantek6000/Hantek6022BE_Manual.pdf)
+
 
 

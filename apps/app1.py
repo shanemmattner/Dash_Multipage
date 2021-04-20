@@ -110,7 +110,7 @@ layout = dbc.Container([
                     ],
                     #if the screen size is small then make the column component the entire width of the page
                     xs=12, sm=12, md=12, lg=COL2_SIZE, xl=COL2_SIZE
-                    )            
+                    )
             ]),
         dbc.Row([
                 dbc.Col([

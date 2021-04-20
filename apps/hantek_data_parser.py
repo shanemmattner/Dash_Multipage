@@ -25,9 +25,9 @@ from dash.exceptions import PreventUpdate
 import pandas as pd
 
 from app import app
-# pio.renderers.default='browser'
+# pio.renderers.default='browser'  #code to display in the browser when plotting directly with PX
 
-SAMPLE_RATE = 1000000 # 1Mhz
+SAMPLE_RATE = 1000000 # 1Mhz, get this number from 
 SAMPLE_TIME = 1/SAMPLE_RATE
 MEM_DEPTH = 130048 # TODO: read the text file and use the found value
 TOTAL_TIME = 130048/1000000
@@ -35,11 +35,18 @@ TOTAL_TIME = 130048/1000000
 df = pd.read_csv('data.txt', skiprows=5, delimiter = "\t")
 df.columns=['CH1']
 time = np.linspace(0, TOTAL_TIME,MEM_DEPTH-1)
+figln = px.line(df,x = time, y='CH1')
 # figln.show()  
 
-
-btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
-graph_hantek = dcc.Graph(id='graph_hantek')
+config={'modeBarButtonsToAdd':['drawline',
+                                        'drawopenpath',
+                                        'drawclosedpath',
+                                        'drawcircle',
+                                        'drawrect',
+                                        'eraseshape'
+                                       ]}
+# btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
+graph_hantek = dcc.Graph(id='graph_hantek', figure = figln, config=config)
 
 
 # Content for APP 1
@@ -47,7 +54,7 @@ layout = dbc.Container([
         # Declare Rows
         dbc.Row([
                 dbc.Col([
-                        btn1,
+                        # btn1,
                         graph_hantek
                         ],
                     width = 12, #define the width of the Column
@@ -57,16 +64,16 @@ layout = dbc.Container([
 
 
 
-@app.callback(
-    Output("graph_hantek", "figure"), [Input("example-button", "n_clicks")]
-)
-def on_button_click(n):
+# @app.callback(
+#     Output("graph_hantek", "figure"), [Input("example-button", "n_clicks")]
+# )
+# def on_button_click(n):
     
-    if n is None:
-        raise PreventUpdate
-    else:
-    # df.plot()
-        figln = px.line(df,x = time, y='CH1')
-        return figln
+#     if n is None:
+#         raise PreventUpdate
+#     else:
+#     # df.plot()
+#         fig = px.line(df,x = time, y='CH1')
+#         return fig
     
     

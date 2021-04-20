@@ -39,8 +39,8 @@ sidebar = dbc.Card([
                     dbc.Nav(
                         [
                             dbc.NavLink("Home", href="/", active="exact"),
-                            dbc.NavLink("Page 1", href="/page-1", active="exact"),
-                            dbc.NavLink("Page 2", href="/page-2", active="exact"),
+                            dbc.NavLink("Bootstrap Example", href="/page-1", active="exact"),
+                            dbc.NavLink("Hantek6022BE Plot", href="/page-2", active="exact"),
                         ],
                         vertical=True,
                         pills=True,
@@ -74,7 +74,7 @@ app.layout = dbc.Container([
 def render_page_content(pathname):
     if pathname == "/":
         return [
-                    html.H1('HOME',
+                    html.H1('Multi-Page Dash application',
                             style={'textAlign':'center'}),
                 ]
     elif pathname == "/page-1":
@@ -83,8 +83,6 @@ def render_page_content(pathname):
                 ]
     elif pathname == "/page-2":
         return [
-                html.H1('APP3',
-                        style={'textAlign':'center'}),
                     hantek_data_parser.layout
                 ]
     # If the user tries to reach a different page, return a 404 message

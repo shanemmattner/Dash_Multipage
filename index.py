@@ -9,7 +9,7 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
-
+from dash.exceptions import PreventUpdate
 
 # Connect to main app.py file
 from app import app
@@ -17,7 +17,7 @@ from app import server
 
 
 # Connect to the apps
-from apps import app1, app2
+from apps import app1, app2, hantek_data_parser
 
 SIDEBAR_STYLE = {
     "position": "fixed",
@@ -85,6 +85,7 @@ def render_page_content(pathname):
         return [
                 html.H1('APP3',
                         style={'textAlign':'center'}),
+                    hantek_data_parser.layout
                 ]
     # If the user tries to reach a different page, return a 404 message
     return dbc.Jumbotron(
@@ -98,4 +99,4 @@ def render_page_content(pathname):
 
 # Run the application
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8050)
+    app.run_server(debug=True, port=8050)

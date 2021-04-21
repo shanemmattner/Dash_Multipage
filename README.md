@@ -16,7 +16,7 @@
 In this repo I've collected some basic Plotly scripts, Dash dashboards, and other useful tools relating to Plotly Dash, data analysis, and presentation
 
 ## Screenshots
-![Verified Boot](readme_images/Verified-Boot.png)
+<!-- ![Verified Boot](readme_images/Verified-Boot.png) -->
 
 ## Technologies
 * Plotly
@@ -27,7 +27,7 @@ In this repo I've collected some basic Plotly scripts, Dash dashboards, and othe
 * Install Anaconda
 * Create repo folder and initialize repo
 * Create necessary file structure
-![File Structure](readme_images/file_structure.png)
+![File_Structure](readme_images/file_structure.png)
 
 * Open Anaconda Prompt and navigate to repo folder
 * Create virtual environment
@@ -77,8 +77,10 @@ Project created by Shane Mattner
 * [Graph Examples and Reference](https://dash.plotly.com/dash-core-components/graph)
 * [All about the Graph Component - Python Dash Plotly](https://www.youtube.com/watch?v=G8r2BB3GFVY)
 * [Visualization with Plotly.Express: Comprehensive guide](https://towardsdatascience.com/visualization-with-plotly-express-comprehensive-guide-eb5ee4b50b57)
+* [How to Build a Reporting Dashboard using Dash and Plotly](https://towardsdatascience.com/how-to-build-a-complex-reporting-dashboard-using-dash-and-plotl-4f4257c18a7f)
 ##### Dash Draw Lines & Edit Graph
 * [Shapes in Python](https://plotly.com/python/shapes/)
+* [Python Figure Reference: layout.shapes](https://plotly.com/python/reference/layout/shapes/)
 * [Interactive annotations and shape drawing in plotly figures and Dash apps](https://eoss-image-processing.github.io/2020/05/06/shape-drawing.html)
 * [Configuration in Python](https://plotly.com/python/configuration-options/#configuring-figures-in-dash-apps)
 * [Draw lines and save them](https://community.plotly.com/t/draw-lines-and-save-them/13162)
@@ -94,7 +96,8 @@ Project created by Shane Mattner
 * [Hantek6022BE SDK](http://www.hantek.com/Product/Hantek6000/HT6022_SDK.zip)
 * [Hantek6022BE Manual](http://www.hantek.com/Product/Hantek6000/Hantek6022BE_Manual.pdf)
 * [Interactive Graphing with Callbacks](https://dash.plotly.com/dash-core-components/graph)
-
+##### Postgresql
+* [Building a distributed time-series database on PostgreSQL](https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/)
 
 
 

@@ -23,6 +23,7 @@ import dash_html_components as html
 from dash.dependencies import Output, Input, State
 from dash.exceptions import PreventUpdate
 import pandas as pd
+import math
 
 from app import app
 # pio.renderers.default='browser'  #code to display in the browser when plotting directly with PX
@@ -45,7 +46,7 @@ config={'modeBarButtonsToAdd':['drawline',
                                         'drawrect',
                                         'eraseshape'
                                        ]}
-# btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
+btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
 graph_hantek = dcc.Graph(id='graph_hantek', figure = figln, config=config)
 
 
@@ -54,26 +55,65 @@ layout = dbc.Container([
         # Declare Rows
         dbc.Row([
                 dbc.Col([
-                        # btn1,
-                        graph_hantek
+                        btn1,
+                        graph_hantek,
+                        html.Div('measurements', id='content')
                         ],
                     width = 12, #define the width of the Column
                     ) 
             ])
-]) # Fluid = True stretches container to size of columns used (up to 12)
+], fluid=True) # Fluid = True stretches container to size of columns used (up to 12)
+
 
 
 
 # @app.callback(
-#     Output("graph_hantek", "figure"), [Input("example-button", "n_clicks")]
-# )
-# def on_button_click(n):
+#     Output('content', 'children'),
+#     [Input('graph', 'graph_hantek'), Input("example-button", "n_clicks")],
+#     [State('content', 'children')])
+# def shape_added(fig_data, n, content):
+#     print(content)
+    
+#     if fig_data is None:
+#         # raise PreventUpdate
+#         print("PREVENT UPDATE GRAPH")
+#         return 'none'
     
 #     if n is None:
-#         raise PreventUpdate
-#     else:
-#     # df.plot()
-#         fig = px.line(df,x = time, y='CH1')
-#         return fig
+#         # raise PreventUpdate
+#         print("PREVENT UPDATE BUTTON")
+#         return 'none'
+    
+#     content = "changed!!"
+    
+#     if 'shapes' in fig_data:
+#         print(fig_data['shapes'])
+#         line = fig_data['shapes'][-1]
+#         length = math.sqrt((line['x1'] - line['x0']) ** 2 +
+#                            (line['y1'] - line['y0']) ** 2)
+#         content += '%.1f'%length + '\n'
+#     return content
+
+
+# TODO: Bug: dynamic update is not happening with the drawing action, only with the button click
+@app.callback(
+    Output('content', 'children'), [Input("example-button", "n_clicks"), Input('graph_hantek', 'relayoutData')],
+    # State('graph_hantek', 'relayoutData')
+)
+def on_button_click(n, fig_data):
+    
+    if n is None:
+        raise PreventUpdate
+    else:
+        if fig_data is None:
+            return "no data"
+        if 'shapes' in fig_data:
+            t_string = ''
+            for i in fig_data['shapes']:
+                t_string = t_string + str(i)
+            t_string = t_string + '\n'
+            return html.Div(t_string)
+        else:
+            return "no shapes"
     
     

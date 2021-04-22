@@ -23,11 +23,10 @@ In this repo I've collected some basic Plotly scripts, Dash dashboards, and othe
 * Dash
 
 ## Project Setup
-* Install Hantek6022BE drivers (link below)
 * Install Anaconda
 * Create repo folder and initialize repo
-* Create necessary file structure
-![File_Structure](readme_images/file_structure.png)
+* Create necessary file structure<br />
+![File Structure](readme_images/file_structure.PNG)
 
 * Open Anaconda Prompt and navigate to repo folder
 * Create virtual environment
@@ -47,7 +46,7 @@ List of features ready and TODOs for future development
 * Plotly scripts
 
 To-do list:
-* Everything
+* Generate new requirements.txt file
 * Capture UART data
 * Live stream UART data
 * Save the zoomed view of the plot

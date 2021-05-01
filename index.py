@@ -31,10 +31,10 @@ SIDEBAR_STYLE = {
 
 sidebar = dbc.Card([
                 dbc.CardBody([
-                    html.H2("Sidebar", className="display-4"),
+                    html.H2("Apps", className="display-4"),
                     html.Hr(), # Horizontal line
                     html.P(
-                        "Number of students per education level", className="lead"
+                        "Select a Dash App", className="lead"
                     ),
                     dbc.Nav(
                         [
@@ -97,4 +97,4 @@ def render_page_content(pathname):
 
 # Run the application
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8050)
+    app.run_server(debug=False, port=8050)

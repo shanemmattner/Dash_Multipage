@@ -10,6 +10,7 @@ import os
 import pandas as pd
 from datetime import datetime
 
+
 DEFAULT_PATH = os.path.join(os.path.dirname(__file__), 'database.sqlite3')
 
 #connect to sqlite database
@@ -20,6 +21,8 @@ def connect(db_path = DEFAULT_PATH):
     except:
         print("Error")
     return conn
+
+
 def list_tables(conn):
     tables = pd.read_sql_query("SELECT name FROM sqlite_master WHERE type='table'", conn)
     return tables

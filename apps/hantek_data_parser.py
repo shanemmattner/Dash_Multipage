@@ -24,6 +24,7 @@ from dash.dependencies import Output, Input, State
 from dash.exceptions import PreventUpdate
 import pandas as pd
 import math
+import db_database as db
 
 from app import app
 # pio.renderers.default='browser'  #code to display in the browser when plotting directly with PX
@@ -34,21 +35,26 @@ MEM_DEPTH = 130048 # TODO: read the text file and use the found value
 TOTAL_TIME = 130048/1000000
 
 df = pd.read_csv('data.txt', skiprows=5, delimiter = "\t")
-df.columns=['CH1']
-time = np.linspace(0, TOTAL_TIME,MEM_DEPTH-1)
+df.columns=['CH1'] # Rename column 1 to 'CH1'
+time = np.linspace(0, TOTAL_TIME,MEM_DEPTH-1) # Create time axis
 figln = px.line(df,x = time, y='CH1')
 # figln.show()  
 
-config={'modeBarButtonsToAdd':['drawline',
-                                        'drawopenpath',
-                                        'drawclosedpath',
-                                        'drawcircle',
-                                        'drawrect',
-                                        'eraseshape'
-                                       ]}
-btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
+
+# COMPONENTS
+config={'modeBarButtonsToAdd':[
+                              # TODO: add option to clear all shapes
+                              'drawline',
+                              # 'drawopenpath',
+                              # 'drawclosedpath',
+                              'drawcircle',
+                              'drawrect',
+                              'eraseshape'
+                            ]}
 graph_hantek = dcc.Graph(id='graph_hantek', figure = figln, config=config)
 
+
+btn1 = dbc.Button("Click me", id="example-button", className="mr-2")
 
 # Content for APP 1
 layout = dbc.Container([
@@ -63,8 +69,6 @@ layout = dbc.Container([
                     ) 
             ])
 ], fluid=True) # Fluid = True stretches container to size of columns used (up to 12)
-
-
 
 
 # @app.callback(
@@ -105,12 +109,18 @@ def on_button_click(n, fig_data):
     if n is None:
         raise PreventUpdate
     else:
+        # conn = db.connect()
+        # db.create_table(conn, df)
+        # df2 = db.retrieve_table(conn)
+        # return str(df2)
+
         if fig_data is None:
             return "no data"
         if 'shapes' in fig_data:
             t_string = ''
             for i in fig_data['shapes']:
                 t_string = t_string + str(i)
+                t_string = t_string + '\n'
             t_string = t_string + '\n'
             return html.Div(t_string)
         else:

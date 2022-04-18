@@ -1,0 +1,4 @@
+Feature Ideas:
+* Select folder to save html file to
+* Fix issue with hover data
+
